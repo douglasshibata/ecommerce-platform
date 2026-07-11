@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-service
+
+# Camel configuration properties
+camel:
+  springboot:
+    name: OrderServiceCamelContext
+  routecontroller:
+    enabled: true
+    back-off-delay: 2000
+    back-off-max-attempts: 3

@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: payment-service
+
+camel:
+  springboot:
+    name: PaymentServiceCamelContext
+  routecontroller:
+    enabled: true
+    back-off-delay: 2000
+    back-off-max-attempts: 3

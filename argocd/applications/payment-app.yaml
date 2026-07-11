@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: payment-service
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: ecommerce-platform
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-org/ecommerce-platform.git
+    targetRevision: main
+    path: ecommerce-platform/apps/payment-service/k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ecommerce
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
